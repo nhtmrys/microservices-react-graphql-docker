@@ -7,11 +7,13 @@ services:
     volumes:
       - ./listings-service:/opt/app
   listings-service-db:
-    platform: linux/x86_64
+    platform: linux/amd64
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=db
-    image: mysql:5.7.20
+    image: mysql:8.0.26
+    ports:
+      - 0.0.0.0:7200:3306
 
   users-service:
     build: "./users-service"
@@ -21,8 +23,10 @@ services:
       - ./users-service:/opt/app
 
   users-service-db:
-      platform: linux/x86_64
+      platform: linux/amd64
       environment:
             - MYSQL_ROOT_PASSWORD=password
             - MYSQL_DATABASE=db
-      image: mysql:5.7.20
+      image: mysql:8.0.26
+      ports:
+        - 0.0.0.0:7201:3306

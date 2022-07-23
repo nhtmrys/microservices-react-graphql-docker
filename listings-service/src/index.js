@@ -1,3 +1,3 @@
 import path from "path";
 
-console.log("working");
+console.log("SUCCESS! listings service is working");
