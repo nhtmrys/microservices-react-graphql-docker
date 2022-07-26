@@ -4,6 +4,6 @@ COPY . /opt/app
 
 WORKDIR /opt/app
 
-RUN npm install
+RUN npm run
 
 CMD npm run watch
